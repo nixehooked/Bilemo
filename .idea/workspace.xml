@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5e21730-680d-4241-905c-00f10c34cdc2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201005210549.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20201005210935.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Clients.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Users.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/ClientsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/UsersRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,23 +31,25 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="env" value="3" />
-          <entry key="php" value="1" />
+          <entry key="php" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="1" />
+          <entry key="PHP" value="7" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="txt" value="16" />
+          <entry key="php" value="2" />
+          <entry key="txt" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="16" />
+          <entry key="PHP" value="2" />
+          <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -60,6 +69,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/Entity/Clients.php" />
       </list>
     </option>
   </component>
@@ -176,17 +186,6 @@
               <item name="Bilemo" type="b2602c69:ProjectViewProjectNode" />
               <item name="Bilemo" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Bilemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bilemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bilemo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bilemo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -221,7 +220,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601929819938</updated>
-      <workItem from="1601929821047" duration="1521000" />
+      <workItem from="1601929821047" duration="2389000" />
     </task>
     <task id="LOCAL-00001" summary="Closes: #1, #2">
       <created>1601930281496</created>
@@ -237,11 +236,18 @@
       <option name="project" value="LOCAL" />
       <updated>1601930563481</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Closes: #6, #7">
+      <created>1601931474020</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601931474020</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1521000" />
+    <option name="totallyTimeSpent" value="2389000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -252,6 +258,7 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" weight="0.329718" />
       <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -276,7 +283,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Closes: #1, #2" />
     <MESSAGE value="Closes: #3, #4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Closes: #3, #4" />
+    <MESSAGE value="Closes: #6, #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Closes: #6, #7" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.env">
@@ -287,7 +295,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Phones.php">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Clients.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="e#30#74#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
