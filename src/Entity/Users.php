@@ -3,11 +3,27 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\UsersRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"security"="is_granted('ROLE_USER')"},
+ *     collectionOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"users_read"}}
+ *         },
+ *         "post"={"security"="is_granted('ROLE_SUPER_ADMIN')"}
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"users_details_read"}}
+ *         },
+ *         "put"={"security"="is_granted('ROLE_ADMIN') or object.owner == user"},
+ *         "delete"={"security"="is_granted('ROLE_SUPER_ADMIN')"}
+ *     },
+ * )
  * @ORM\Entity(repositoryClass=UsersRepository::class)
  */
 class Users
@@ -21,6 +37,7 @@ class Users
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"users_details_read", "clients_read", "clients_details_read"})
      */
     private $email;
 
@@ -31,11 +48,13 @@ class Users
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"users_read", "users_details_read", "clients_read", "clients_details_read"})
      */
     private $name;
 
     /**
      * @ORM\ManyToOne(targetEntity=Clients::class, inversedBy="users")
+     * @Groups({"users_read", "users_details_read"})
      */
     private $client;
 

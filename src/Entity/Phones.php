@@ -3,11 +3,27 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\PhonesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"security"="is_granted('ROLE_USER')"},
+ *     collectionOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"details"}}
+ *         },
+ *         "post"={"security"="is_granted('ROLE_SUPER_ADMIN')"}
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"phones_details"}}
+ *         },
+ *         "put"={"security"="is_granted('ROLE_ADMIN') or object.owner == user"},
+ *         "delete"={"security"="is_granted('ROLE_SUPER_ADMIN')"}
+ *     }
+ * )
  * @ORM\Entity(repositoryClass=PhonesRepository::class)
  */
 class Phones
@@ -21,26 +37,31 @@ class Phones
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"details", "phones_details"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups({"details", "phones_details"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"phones_details"})
      */
     private $type;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"phones_details"})
      */
     private $color;
 
     /**
      * @ORM\Column(type="float")
+     * @Groups({"phones_details"})
      */
     private $price;
 

@@ -4,13 +4,26 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ClientsRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={"security"="is_granted('ROLE_USER')"},
+ *     collectionOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"clients_read"}}
+ *         },
+ *     },
+ *     itemOperations={
+ *         "get"={
+ *             "normalization_context"={"groups"={"clients_details_read"}}
+ *     },
+ *     }
+ * )
  * @ORM\Entity(repositoryClass=ClientsRepository::class)
  */
 class Clients implements UserInterface
@@ -24,6 +37,7 @@ class Clients implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"clients_read", "clients_details_read"})
      */
     private $email;
 
@@ -40,11 +54,13 @@ class Clients implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"clients_read", "clients_details_read", "users_details_read"})
      */
     private $name;
 
     /**
      * @ORM\OneToMany(targetEntity=Users::class, mappedBy="client")
+     * @Groups({"clients_read", "clients_details_read"})
      */
     private $users;
 
