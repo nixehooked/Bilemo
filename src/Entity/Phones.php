@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  *         "get"={
  *             "normalization_context"={"groups"={"phones_details"}}
  *         },
- *         "put"={"security"="is_granted('ROLE_ADMIN') or object.owner == user"},
+ *         "put"={"security"="is_granted('ROLE_SUPER_ADMIN') or object.owner == user"},
  *         "delete"={"security"="is_granted('ROLE_SUPER_ADMIN')"}
  *     }
  * )
