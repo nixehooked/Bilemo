@@ -2,7 +2,7 @@
 </br>
 Création d'une API pour l'entreprise BileMo qui propose un catalogue de téléphone mobile, dans le cadre de la formation OpenClassroom Développeur d'application - PHP/Symfony.</br>
 </br>
-# Installation
+<H2> Installation </h2>
 </br>
 <code>git clone https://github.com/nixehooked/Bilemo.git</code></br>
 </br>
