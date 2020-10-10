@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\UsersRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     },
  * )
  * @ORM\Entity(repositoryClass=UsersRepository::class)
+ * @UniqueEntity("email")
  */
 class Users
 {

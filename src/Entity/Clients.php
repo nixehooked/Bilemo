@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ClientsRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -25,6 +26,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *     }
  * )
  * @ORM\Entity(repositoryClass=ClientsRepository::class)
+ * @UniqueEntity("email")
  */
 class Clients implements UserInterface
 {
